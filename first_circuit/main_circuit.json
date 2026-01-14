@@ -1,0 +1,73 @@
+{
+  "name": "main_circuit",
+  "description": "",
+  "tstamps": "/main_circuit-1871851048976/",
+  "source_file": "main_circuit.kicad_sch",
+  "components": {
+    "IC1": {
+      "symbol": "SamacSys_Parts:XC6220B331MR-G",
+      "ref": "IC1",
+      "value": "",
+      "footprint": "SamacSys_Parts:SOT95P280X130-5N",
+      "datasheet": "https://www.torexsemi.com/file/xc6220/XC6220.pdf",
+      "description": "TOREX - XC6220B331MR-G - IC, LDO, 1A, 3.3V, SOT-25",
+      "properties": {},
+      "_extra_fields": {},
+      "pins": [
+        {
+          "pin_id": "1",
+          "name": "VIN",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": 0.0,
+          "length": 5.08,
+          "orientation": 0.0
+        },
+        {
+          "pin_id": "2",
+          "name": "VSS",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": -2.54,
+          "length": 5.08,
+          "orientation": 0.0
+        },
+        {
+          "pin_id": "3",
+          "name": "CE",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": -5.08,
+          "length": 5.08,
+          "orientation": 0.0
+        },
+        {
+          "pin_id": "4",
+          "name": "NC",
+          "func": "no_connect",
+          "unit": 1,
+          "x": 27.94,
+          "y": 0.0,
+          "length": 5.08,
+          "orientation": 180.0
+        },
+        {
+          "pin_id": "5",
+          "name": "VOUT",
+          "func": "passive",
+          "unit": 1,
+          "x": 27.94,
+          "y": -2.54,
+          "length": 5.08,
+          "orientation": 180.0
+        }
+      ]
+    }
+  },
+  "nets": {},
+  "subcircuits": [],
+  "annotations": []
+}

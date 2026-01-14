@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug main.py (Direct)",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "program": "${workspaceFolder}/main.py",
+            "console": "integratedTerminal",
+            "env": {
+                "KICAD_SYMBOL_DIR": "C:/Program Files/KiCad/9.0/share/kicad/symbols;C:/Users/mohan/Documents/KiCadLibraryLoader;C:/Users/mohan/Documents/KiCad/9.0/3rdparty/symbols"
+            },
+            // This ensures VS Code uses the UV virtual environment
+            // Adjust path if UV put .venv somewhere else
+            "python": "${workspaceFolder}/.venv/Scripts/python.exe" 
+        }
+    ]
+}

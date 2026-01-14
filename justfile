@@ -1,0 +1,11 @@
+set shell := ["sh", "-c"]
+set windows-shell := ["powershell", "-c"]
+
+export KICAD_SYMBOL_DIR := "C:/Program Files/KiCad/9.0/share/kicad/symbols;C:/Users/mohan/Documents/KiCadLibraryLoader;C:/Users/mohan/Documents/KiCad/9.0/3rdparty/symbols"
+
+run:
+  uv run main.py
+
+debug:
+  uv run python -m debugpy --listen 5678 --wait-for-client main.py
+
