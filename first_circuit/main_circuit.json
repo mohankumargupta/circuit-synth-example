@@ -1,7 +1,7 @@
 {
   "name": "main_circuit",
   "description": "",
-  "tstamps": "/main_circuit-1871851048976/",
+  "tstamps": "/main_circuit-2775888384016/",
   "source_file": "main_circuit.kicad_sch",
   "components": {
     "IC1": {
@@ -65,9 +65,115 @@
           "orientation": 180.0
         }
       ]
+    },
+    "C5": {
+      "symbol": "Device:C",
+      "ref": "C5",
+      "value": "10uF",
+      "footprint": "Capacitor_SMD:C_0603",
+      "datasheet": "~",
+      "description": "Unpolarized capacitor",
+      "properties": {
+        "ki_fp_filters": "C_*"
+      },
+      "_extra_fields": {
+        "ki_fp_filters": "C_*"
+      },
+      "pins": [
+        {
+          "pin_id": "1",
+          "name": "~",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": 3.81,
+          "length": 2.794,
+          "orientation": 270.0
+        },
+        {
+          "pin_id": "2",
+          "name": "~",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": -3.81,
+          "length": 2.794,
+          "orientation": 90.0
+        }
+      ]
+    },
+    "C7": {
+      "symbol": "Device:C",
+      "ref": "C7",
+      "value": "0.1uF",
+      "footprint": "Capacitor_SMD:C_0603",
+      "datasheet": "~",
+      "description": "Unpolarized capacitor",
+      "properties": {
+        "ki_fp_filters": "C_*"
+      },
+      "_extra_fields": {
+        "ki_fp_filters": "C_*"
+      },
+      "pins": [
+        {
+          "pin_id": "1",
+          "name": "~",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": 3.81,
+          "length": 2.794,
+          "orientation": 270.0
+        },
+        {
+          "pin_id": "2",
+          "name": "~",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": -3.81,
+          "length": 2.794,
+          "orientation": 90.0
+        }
+      ]
     }
   },
-  "nets": {},
+  "nets": {
+    "N$1": {
+      "nodes": [
+        {
+          "component": "IC1",
+          "pin": {
+            "number": "5",
+            "name": "VOUT",
+            "type": "passive"
+          }
+        },
+        {
+          "component": "C5",
+          "pin": {
+            "number": "1",
+            "name": "~",
+            "type": "passive"
+          }
+        },
+        {
+          "component": "C7",
+          "pin": {
+            "number": "1",
+            "name": "~",
+            "type": "passive"
+          }
+        }
+      ],
+      "is_power": false,
+      "power_symbol": null,
+      "trace_current": null,
+      "impedance": null,
+      "properties": {}
+    }
+  },
   "subcircuits": [],
   "annotations": []
 }

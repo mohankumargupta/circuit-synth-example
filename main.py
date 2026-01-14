@@ -9,6 +9,14 @@ VREGULATOR_TOREX = Component(
     description="TOREX - XC6220B331MR-G - IC, LDO, 1A, 3.3V, SOT-25"
 )
 
+C_10uF_0603 = Component(
+    symbol="Device:C", ref="C", value="10uF", footprint="Capacitor_SMD:C_0603"
+)
+
+C_01uF_0603 = Component(
+    symbol="Device:C", ref="C", value="0.1uF", footprint="Capacitor_SMD:C_0603"
+)
+
 
 # @circuit(name="simple_led")
 # def simple_led():
@@ -72,10 +80,38 @@ VREGULATOR_TOREX = Component(
 #     resistor_r1[2] += GND
 
 
-def usb_power_supply():
+def usb_power_supply():    
+    # Create main nets
+    _5v = Net("5V")
+    _3v3 = Net("3V3")
+    GND = Net("GND")
+
+    # Create dictionaries of nets instead of buses
+    usb_nets = {"d_minus": Net("USB_DM"), "d_plus": Net("USB_DP")}  # D-  # D+
+
+    spi_nets = {
+        "miso": Net("SPI_MISO"),  # MISO
+        "mosi": Net("SPI_MOSI"),  # MOSI
+        "sck": Net("SPI_SCK"),  # SCK
+        "cs": Net("SPI_CS"),  # CS
+    }
+
+    int_nets = {"int1": Net("INT1"), "int2": Net("INT2")}
+
+
     regulator_ic1 = VREGULATOR_TOREX()
     regulator_ic1.ref = "IC1"
 
+    capacitor_c5 = C_10uF_0603()
+    capacitor_c5.ref = "C5"
+
+    capacitor_c7 = C_01uF_0603()
+    capacitor_c7.ref = "C7"
+
+    # Connections
+    # connect pin 5 of VREG to capacitors
+    regulator_ic1[5] += capacitor_c5[1]
+    regulator_ic1[5] += capacitor_c7[1]
 
 @circuit
 def main_circuit():
