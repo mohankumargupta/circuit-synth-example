@@ -1,7 +1,7 @@
 {
   "name": "main_circuit",
   "description": "",
-  "tstamps": "/main_circuit-2775888384016/",
+  "tstamps": "/main_circuit-1401376755728/",
   "source_file": "main_circuit.kicad_sch",
   "components": {
     "IC1": {
@@ -70,7 +70,7 @@
       "symbol": "Device:C",
       "ref": "C5",
       "value": "10uF",
-      "footprint": "Capacitor_SMD:C_0603",
+      "footprint": "Capacitor_SMD:C_0201_0603Metric",
       "datasheet": "~",
       "description": "Unpolarized capacitor",
       "properties": {
@@ -106,7 +106,7 @@
       "symbol": "Device:C",
       "ref": "C7",
       "value": "0.1uF",
-      "footprint": "Capacitor_SMD:C_0603",
+      "footprint": "Capacitor_SMD:C_0201_0603Metric",
       "datasheet": "~",
       "description": "Unpolarized capacitor",
       "properties": {
@@ -140,7 +140,7 @@
     }
   },
   "nets": {
-    "N$1": {
+    "REGULATOR_VOUT": {
       "nodes": [
         {
           "component": "IC1",
@@ -152,14 +152,6 @@
         },
         {
           "component": "C5",
-          "pin": {
-            "number": "1",
-            "name": "~",
-            "type": "passive"
-          }
-        },
-        {
-          "component": "C7",
           "pin": {
             "number": "1",
             "name": "~",

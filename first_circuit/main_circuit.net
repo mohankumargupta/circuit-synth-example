@@ -1,9 +1,9 @@
 (export (version "E")
     (design
       (source "main_circuit.kicad_sch")
-      (date "2026-01-15T09:54:41+1100")
+      (date "2026-01-15T12:07:26+1100")
       (tool "Circuit-Synth Exporter v0.1.0")
-      (sheet (number "1") (name "root") (tstamps "/798bc85f-e9b1-4163-8391-44cb167c260b/")
+      (sheet (number "1") (name "root") (tstamps "/153cec31-ee16-47b4-b2c7-029fbdbdda88/")
       (title_block
         (title )
         (company )
@@ -29,13 +29,13 @@
       (property (name "Sheetname") (value "Root"))
       (property (name "Sheetfile") (value "circuit.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
-      (tstamps "73b04ec6-1e71-4fdb-b816-c4441bddb0a4"))
+      (tstamps "ebe6f878-8565-4281-95ff-ab46b41f9328"))
     (comp (ref "C5")
       (value "10uF")
-      (footprint "Capacitor_SMD:C_0603")
+      (footprint "Capacitor_SMD:C_0201_0603Metric")
       (description "Unpolarized capacitor")
       (fields
-        (field (name "Footprint") "Capacitor_SMD:C_0603")
+        (field (name "Footprint") "Capacitor_SMD:C_0201_0603Metric")
         (field (name "Datasheet") "~")
         (field (name "Description") "Unpolarized capacitor"))
       (libsource (lib "Device") (part "C") (description "Unpolarized capacitor"))
@@ -43,13 +43,13 @@
       (property (name "Sheetfile") (value "circuit.kicad_sch"))
       (property (name "ki_fp_filters") (value "C_*"))
       (sheetpath (names "/") (tstamps "/"))
-      (tstamps "a3356571-cb77-40a5-9473-e1fbd83f0508"))
+      (tstamps "5838ce83-e084-4841-a955-7f0ba8760efd"))
     (comp (ref "C7")
       (value "0.1uF")
-      (footprint "Capacitor_SMD:C_0603")
+      (footprint "Capacitor_SMD:C_0201_0603Metric")
       (description "Unpolarized capacitor")
       (fields
-        (field (name "Footprint") "Capacitor_SMD:C_0603")
+        (field (name "Footprint") "Capacitor_SMD:C_0201_0603Metric")
         (field (name "Datasheet") "~")
         (field (name "Description") "Unpolarized capacitor"))
       (libsource (lib "Device") (part "C") (description "Unpolarized capacitor"))
@@ -57,7 +57,7 @@
       (property (name "Sheetfile") (value "circuit.kicad_sch"))
       (property (name "ki_fp_filters") (value "C_*"))
       (sheetpath (names "/") (tstamps "/"))
-      (tstamps "c22d468f-722c-431d-86cf-b9e691599cf2")))
+      (tstamps "b23d6c29-0d54-44e4-85e4-41853a9f7869")))
     (libparts
     (libpart (lib "SamacSys_Parts") (part "XC6220B331MR-G")
       (docs "https://www.torexsemi.com/file/xc6220/XC6220.pdf")
@@ -80,7 +80,7 @@
       (fields
         (field (name "Reference") "U")
         (field (name "Value") "10uF")
-        (field (name "Footprint") "Capacitor_SMD:C_0603")
+        (field (name "Footprint") "Capacitor_SMD:C_0201_0603Metric")
         (field (name "Datasheet") ""))
       (pins
         (pin (num "?") (name "~") (type "passive"))
@@ -91,7 +91,6 @@
     (library (logical "SamacSys_Parts")
       (uri "/usr/share/kicad/symbols/SamacSys_Parts.kicad_sym")))
     (nets
-    (net (code "1") (name "N$1")
+    (net (code "1") (name "REGULATOR_VOUT")
           (node (ref "IC1") (pin "5") (pintype "passive") (pinfunction "VOUT"))
-          (node (ref "C5") (pin "1") (pintype "passive"))
-          (node (ref "C7") (pin "1") (pintype "passive")))))
+          (node (ref "C5") (pin "1") (pintype "passive")))))

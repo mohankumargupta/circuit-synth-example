@@ -5,7 +5,7 @@ export KICAD_SYMBOL_DIR := "C:/Program Files/KiCad/9.0/share/kicad/symbols;C:/Us
 
 run:
   uv run main.py
-
+  start "C:\Program Files\KiCad\9.0\bin\kicad.exe"
 debug:
   uv run python -m debugpy --listen 5678 --wait-for-client main.py
 

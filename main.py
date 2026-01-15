@@ -10,94 +10,76 @@ VREGULATOR_TOREX = Component(
 )
 
 C_10uF_0603 = Component(
-    symbol="Device:C", ref="C", value="10uF", footprint="Capacitor_SMD:C_0603"
+    symbol="Device:C", ref="C", value="10uF", footprint="Capacitor_SMD:C_0201_0603Metric"
 )
 
 C_01uF_0603 = Component(
-    symbol="Device:C", ref="C", value="0.1uF", footprint="Capacitor_SMD:C_0603"
+    symbol="Device:C", ref="C", value="0.1uF", footprint="Capacitor_SMD:C_0201_0603Metric"
 )
 
-
-# @circuit(name="simple_led")
-# def simple_led():
-#     """
-#     Simple LED circuit with current limiting resistor.
-#     Perfect for getting started with Circuit-Synth!
-#     """
-
-#     # Create power nets
-#     VCC_3V3 = Net('VCC_3V3')
-#     GND = Net('GND')
-
-#     # Create LED component
-#     led = Component(
-#         symbol="Device:LED",
-#         ref="D1",
-#         value="Red",
-#         footprint="LED_SMD:LED_0603_1608Metric"
-#     )
-
-#     # Create current limiting resistor
-#     resistor = Component(
-#         symbol="Device:R",
-#         ref="R1",
-#         value="330",
-#         footprint="Resistor_SMD:R_0603_1608Metric"
-#     )
-
-#     # Make connections
-#     VCC_3V3 += resistor[1]     # Power to resistor
-#     resistor[2] += led[1]      # Resistor to LED anode
-#     led[2] += GND              # LED cathode to ground
-
-# @circuit(name="usb_power_supply")
-# def usb_power_supply():
-#     # Create power nets
-#     VCC_3V3 = Net('VCC_3V3')
-#     GND = Net('GND')
-#     ground = Component(
-#         symbol="power:GND", 
-#         ref="#PWR",        # Let KiCad assign the ref automatically
-#     )
-#     ground[1] += GND
-#     vcc = Component(
-#         symbol="power:VCC", 
-#         ref="#PWR",        # Let KiCad assign the ref automatically
-#     )
-#     vcc[1] += VCC_3V3       
-#     # R1 
-#     resistor_r1 = Component(
-#         symbol="Device:R",
-#         ref="R1",
-#         value="5.1k",
-#         footprint="Resistor_SMD:R_0603_1608Metric",
-    
-#     )
-    
+# Helper function to create nets in schematic
+class SchematicNet:
+    def __init__(self, source, name=None, is_global=False, power_symbol=None):
+        self._user_defined_name = name
         
-#     # R1 to GND
-#     resistor_r1[1] += VCC_3V3
-#     resistor_r1[2] += GND
+        # 1. Resolve Net Object
+        if isinstance(source, str):
+            self.net = Net(source)
+        elif hasattr(source, 'net'): 
+            self.net = source.net
+        else:
+            self.net = source
 
+        # 2. Rename
+        if name:
+            self.net.name = name
+            
+        # 3. Handle Global/Power Settings
+        if power_symbol:
+            # If a symbol is provided, it implies the net is a global power net
+            self.net.is_power = True
+            self.net.power_symbol = power_symbol
+        elif is_global:
+            # If just is_global is True, default to the standard VCC arrow
+            self.net.is_power = True
+            self.net.power_symbol = "power:VCC"
 
+    @property
+    def name(self):
+        return self.net.name
+
+    @name.setter
+    def name(self, new_name):
+        self._user_defined_name = new_name
+        self.net.name = new_name
+
+    def __iadd__(self, other):
+        if isinstance(other, SchematicNet):
+            self.net += other.net
+        else:
+            self.net += other
+
+        if self._user_defined_name:
+            self.net.name = self._user_defined_name
+            
+        return self
+
+    
 def usb_power_supply():    
     # Create main nets
-    _5v = Net("5V")
-    _3v3 = Net("3V3")
+    NET_5V = Net("5V")
+    NET_3V3 = Net("3V3")
     GND = Net("GND")
 
-    # Create dictionaries of nets instead of buses
-    usb_nets = {"d_minus": Net("USB_DM"), "d_plus": Net("USB_DP")}  # D-  # D+
-
-    spi_nets = {
-        "miso": Net("SPI_MISO"),  # MISO
-        "mosi": Net("SPI_MOSI"),  # MOSI
-        "sck": Net("SPI_SCK"),  # SCK
-        "cs": Net("SPI_CS"),  # CS
+    # Create nets from regulator
+    regulator_nets = {
+        "vin": SchematicNet("REGULATOR_VIN"),
+        "vss": SchematicNet("REGULATOR_VSS"),
+        "ce": SchematicNet("REGULATOR_CE"),
+        "vout": SchematicNet("REGULATOR_VOUT"),
     }
 
-    int_nets = {"int1": Net("INT1"), "int2": Net("INT2")}
-
+    # create components
 
     regulator_ic1 = VREGULATOR_TOREX()
     regulator_ic1.ref = "IC1"
@@ -108,10 +90,24 @@ def usb_power_supply():
     capacitor_c7 = C_01uF_0603()
     capacitor_c7.ref = "C7"
 
-    # Connections
-    # connect pin 5 of VREG to capacitors
-    regulator_ic1[5] += capacitor_c5[1]
-    regulator_ic1[5] += capacitor_c7[1]
+    # Connect regulator nets
+    #regulator_ic1[5] += capacitor_c5[1]
+    regulator_nets["vout"] += regulator_ic1[5]
+    regulator_nets["vout"] += capacitor_c5[1]
+
+    # # Rename nets
+    # regulator_ic1[5] += regulator_nets["vout"]
+
+    # regulator_nets["vin"] = regulator_ic1[1]
+    # regulator_nets["vss"] = regulator_ic1[2]
+    # regulator_nets["ce"] = regulator_ic1[3]
+    #regulator_nets["vout"] = regulator_ic1[5]
+
+    # # Connections
+    # # connect pin 5 of VREG to capacitors
+    #capacitor_c5[1] += regulator_nets["vout"]
+    #regulator_ic1[5] += capacitor_c5[1]
+    # regulator_ic1[5] += capacitor_c7[1]
 
 @circuit
 def main_circuit():
