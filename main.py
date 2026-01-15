@@ -13,6 +13,11 @@ VREGULATOR_TOREX = Component(
     description="TOREX - XC6220B331MR-G - IC, LDO, 1A, 3.3V, SOT-25"
 )
 
+USB_CONNECTOR = Component(
+    symbol="SamacSys_Parts:USB4135-GF-A", 
+    footprint="SamacSys_Parts:USB4135GFA",
+)
+
 C_10uF_0603 = Component(
     symbol="Device:C", ref="C", value="10uF", footprint="Capacitor_SMD:C_0201_0603Metric"
 )
@@ -102,9 +107,34 @@ def usb_power_supply():
     capacitor_c5[1] += capacitor_c7[1]
 
 
+def usb_connector_circuit():
+    # 1. Define the Ground Net with the proper symbol
+    #    This ensures it uses the "arrow/triangle" symbol shown in your image.
+    gnd_net = SchematicNet("GND")
+
+    # 2. Define the Component
+    #    (Assuming you have this symbol in your library)
+    usb_conn = USB_CONNECTOR()
+    usb_conn.ref = "J1"
+
+    # 3. Connect the pins shown in the image
+    #    In SKiDL/Circuit-Synth, you can access pins by their name (string).
+    
+    # Connect the Mounting Pins (Shield)
+    gnd_net += usb_conn["MP1"]
+    gnd_net += usb_conn["MP2"]
+    gnd_net += usb_conn["MP3"]
+    gnd_net += usb_conn["MP4"]
+    
+    # Connect the Ground Pin (B12)
+    gnd_net += usb_conn["B12"]
+
+
+
 @circuit
 def main_circuit():
-    usb_power_supply()
+    usb_connector_circuit()
+    #usb_power_supply()
     
 
 if __name__ == "__main__":

@@ -1,22 +1,22 @@
 {
   "name": "main_circuit",
   "description": "",
-  "tstamps": "/main_circuit-2200358899728/",
+  "tstamps": "/main_circuit-2471504990560/",
   "source_file": "main_circuit.kicad_sch",
   "components": {
-    "IC1": {
-      "symbol": "SamacSys_Parts:XC6220B331MR-G",
-      "ref": "IC1",
+    "J1": {
+      "symbol": "SamacSys_Parts:USB4135-GF-A",
+      "ref": "J1",
       "value": "",
-      "footprint": "SamacSys_Parts:SOT95P280X130-5N",
-      "datasheet": "https://www.torexsemi.com/file/xc6220/XC6220.pdf",
-      "description": "TOREX - XC6220B331MR-G - IC, LDO, 1A, 3.3V, SOT-25",
+      "footprint": "SamacSys_Parts:USB4135GFA",
+      "datasheet": "",
+      "description": "",
       "properties": {},
       "_extra_fields": {},
       "pins": [
         {
-          "pin_id": "1",
-          "name": "VIN",
+          "pin_id": "A5",
+          "name": "A5",
           "func": "passive",
           "unit": 1,
           "x": 0.0,
@@ -25,8 +25,8 @@
           "orientation": 0.0
         },
         {
-          "pin_id": "2",
-          "name": "VSS",
+          "pin_id": "A9",
+          "name": "A9",
           "func": "passive",
           "unit": 1,
           "x": 0.0,
@@ -35,8 +35,8 @@
           "orientation": 0.0
         },
         {
-          "pin_id": "3",
-          "name": "CE",
+          "pin_id": "A12",
+          "name": "A12",
           "func": "passive",
           "unit": 1,
           "x": 0.0,
@@ -45,130 +45,124 @@
           "orientation": 0.0
         },
         {
-          "pin_id": "4",
-          "name": "NC",
-          "func": "no_connect",
+          "pin_id": "B5",
+          "name": "B5",
+          "func": "passive",
           "unit": 1,
-          "x": 27.94,
+          "x": 0.0,
+          "y": -7.62,
+          "length": 5.08,
+          "orientation": 0.0
+        },
+        {
+          "pin_id": "B9",
+          "name": "B9",
+          "func": "passive",
+          "unit": 1,
+          "x": 0.0,
+          "y": -10.16,
+          "length": 5.08,
+          "orientation": 0.0
+        },
+        {
+          "pin_id": "B12",
+          "name": "B12",
+          "func": "passive",
+          "unit": 1,
+          "x": 25.4,
           "y": 0.0,
           "length": 5.08,
           "orientation": 180.0
         },
         {
-          "pin_id": "5",
-          "name": "VOUT",
+          "pin_id": "MP1",
+          "name": "MP1",
           "func": "passive",
           "unit": 1,
-          "x": 27.94,
+          "x": 25.4,
           "y": -2.54,
           "length": 5.08,
           "orientation": 180.0
-        }
-      ]
-    },
-    "C5": {
-      "symbol": "Device:C",
-      "ref": "C5",
-      "value": "10uF",
-      "footprint": "Capacitor_SMD:C_0201_0603Metric",
-      "datasheet": "~",
-      "description": "Unpolarized capacitor",
-      "properties": {
-        "ki_fp_filters": "C_*"
-      },
-      "_extra_fields": {
-        "ki_fp_filters": "C_*"
-      },
-      "pins": [
-        {
-          "pin_id": "1",
-          "name": "~",
-          "func": "passive",
-          "unit": 1,
-          "x": 0.0,
-          "y": 3.81,
-          "length": 2.794,
-          "orientation": 270.0
         },
         {
-          "pin_id": "2",
-          "name": "~",
+          "pin_id": "MP2",
+          "name": "MP2",
           "func": "passive",
           "unit": 1,
-          "x": 0.0,
-          "y": -3.81,
-          "length": 2.794,
-          "orientation": 90.0
-        }
-      ]
-    },
-    "C7": {
-      "symbol": "Device:C",
-      "ref": "C7",
-      "value": "0.1uF",
-      "footprint": "Capacitor_SMD:C_0201_0603Metric",
-      "datasheet": "~",
-      "description": "Unpolarized capacitor",
-      "properties": {
-        "ki_fp_filters": "C_*"
-      },
-      "_extra_fields": {
-        "ki_fp_filters": "C_*"
-      },
-      "pins": [
-        {
-          "pin_id": "1",
-          "name": "~",
-          "func": "passive",
-          "unit": 1,
-          "x": 0.0,
-          "y": 3.81,
-          "length": 2.794,
-          "orientation": 270.0
+          "x": 25.4,
+          "y": -5.08,
+          "length": 5.08,
+          "orientation": 180.0
         },
         {
-          "pin_id": "2",
-          "name": "~",
+          "pin_id": "MP3",
+          "name": "MP3",
           "func": "passive",
           "unit": 1,
-          "x": 0.0,
-          "y": -3.81,
-          "length": 2.794,
-          "orientation": 90.0
+          "x": 25.4,
+          "y": -7.62,
+          "length": 5.08,
+          "orientation": 180.0
+        },
+        {
+          "pin_id": "MP4",
+          "name": "MP4",
+          "func": "passive",
+          "unit": 1,
+          "x": 25.4,
+          "y": -10.16,
+          "length": 5.08,
+          "orientation": 180.0
         }
       ]
     }
   },
   "nets": {
-    "REGULATOR_VOUT": {
+    "GND": {
       "nodes": [
         {
-          "component": "IC1",
+          "component": "J1",
           "pin": {
-            "number": "5",
-            "name": "VOUT",
+            "number": "B12",
+            "name": "B12",
             "type": "passive"
           }
         },
         {
-          "component": "C5",
+          "component": "J1",
           "pin": {
-            "number": "1",
-            "name": "~",
+            "number": "MP1",
+            "name": "MP1",
             "type": "passive"
           }
         },
         {
-          "component": "C7",
+          "component": "J1",
           "pin": {
-            "number": "1",
-            "name": "~",
+            "number": "MP2",
+            "name": "MP2",
+            "type": "passive"
+          }
+        },
+        {
+          "component": "J1",
+          "pin": {
+            "number": "MP3",
+            "name": "MP3",
+            "type": "passive"
+          }
+        },
+        {
+          "component": "J1",
+          "pin": {
+            "number": "MP4",
+            "name": "MP4",
             "type": "passive"
           }
         }
       ],
-      "is_power": false,
-      "power_symbol": null,
+      "is_power": true,
+      "power_symbol": "power:GND",
       "trace_current": null,
       "impedance": null,
       "properties": {}
