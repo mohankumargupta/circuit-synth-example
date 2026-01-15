@@ -92,6 +92,7 @@ def usb_power_supply():
 
     regulator_ic1 = VREGULATOR_TOREX()
     regulator_ic1.ref = "IC1"
+    regulator_ic1.rotation = 90
 
     capacitor_c5 = C_10uF_0603()
     capacitor_c5.ref = "C5"
@@ -110,7 +111,7 @@ def usb_power_supply():
 def usb_connector_circuit():
     # 1. Define the Ground Net with the proper symbol
     #    This ensures it uses the "arrow/triangle" symbol shown in your image.
-    gnd_net = SchematicNet("GND")
+    NET_GND = SchematicNet("GND")
 
     # 2. Define the Component
     #    (Assuming you have this symbol in your library)
@@ -119,21 +120,64 @@ def usb_connector_circuit():
 
     # 3. Connect the pins shown in the image
     #    In SKiDL/Circuit-Synth, you can access pins by their name (string).
-    
+    NET_GND += usb_conn["MP1"]
+    NET_GND += usb_conn["MP2"]
+
     # Connect the Mounting Pins (Shield)
-    gnd_net += usb_conn["MP1"]
-    gnd_net += usb_conn["MP2"]
-    gnd_net += usb_conn["MP3"]
-    gnd_net += usb_conn["MP4"]
+    # gnd_net += usb_conn["MP1"]
+    # gnd_net += usb_conn["MP2"]
+    # gnd_net += usb_conn["MP3"]
+    # gnd_net += usb_conn["MP4"]
     
-    # Connect the Ground Pin (B12)
-    gnd_net += usb_conn["B12"]
+    # # Connect the Ground Pin (B12)
+    # gnd_net += usb_conn["B12"]
+
+
+
+
+def rc_delay():
+    vcc = Net("+3.3V") 
+    gnd = Net("GND")
+    en  = Net("EN")
+
+    # 2. Define the Components
+    # R3: 10k Resistor
+    # We use the standard KiCad symbol "Device:R"
+    r3 = Component(
+        symbol="Device:R", 
+        ref="R3",           # Explicitly naming it R3 to match your schematic
+        value="10k",
+        footprint="Resistor_SMD:R_0603_1608Metric" # Example 0603 footprint
+    )
+
+    # C12: 1uF Capacitor
+    # We use the standard KiCad symbol "Device:C"
+    c12 = Component(
+        symbol="Device:C", 
+        ref="C12",          # Explicitly naming it C12
+        value="1uF",
+        footprint="Capacitor_SMD:C_0603_1608Metric" # Example 0603 footprint
+    )
+
+    # 3. Connect the Circuit
+    # R3 Pin 1 -> +3.3V
+    r3[1] += vcc
+    
+    # R3 Pin 2 -> EN
+    r3[2] += en
+
+    # C12 Pin 1 -> EN
+    c12[1] += en
+
+    # C12 Pin 2 -> GND
+    c12[2] += gnd    
 
 
 
 @circuit
 def main_circuit():
-    usb_connector_circuit()
+    rc_delay()
+    #usb_connector_circuit()
     #usb_power_supply()
     
 
@@ -144,5 +188,5 @@ if __name__ == "__main__":
         shutil.rmtree(project_folder)
         
     circuit = main_circuit()
-    circuit.generate_kicad_project(project_name, generate_pcb=False )
+    circuit.generate_kicad_project(project_name, generate_pcb=False, force_regenerate=False )
 
