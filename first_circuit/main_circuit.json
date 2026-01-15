@@ -1,7 +1,7 @@
 {
   "name": "main_circuit",
   "description": "",
-  "tstamps": "/main_circuit-1401376755728/",
+  "tstamps": "/main_circuit-2200358899728/",
   "source_file": "main_circuit.kicad_sch",
   "components": {
     "IC1": {
@@ -152,6 +152,14 @@
         },
         {
           "component": "C5",
+          "pin": {
+            "number": "1",
+            "name": "~",
+            "type": "passive"
+          }
+        },
+        {
+          "component": "C7",
           "pin": {
             "number": "1",
             "name": "~",

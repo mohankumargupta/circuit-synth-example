@@ -1,9 +1,9 @@
 (export (version "E")
     (design
       (source "main_circuit.kicad_sch")
-      (date "2026-01-15T12:07:26+1100")
+      (date "2026-01-15T12:12:34+1100")
       (tool "Circuit-Synth Exporter v0.1.0")
-      (sheet (number "1") (name "root") (tstamps "/153cec31-ee16-47b4-b2c7-029fbdbdda88/")
+      (sheet (number "1") (name "root") (tstamps "/1bfdfa13-311c-4ab3-afb2-291fcb6d959e/")
       (title_block
         (title )
         (company )
@@ -29,7 +29,7 @@
       (property (name "Sheetname") (value "Root"))
       (property (name "Sheetfile") (value "circuit.kicad_sch"))
       (sheetpath (names "/") (tstamps "/"))
-      (tstamps "ebe6f878-8565-4281-95ff-ab46b41f9328"))
+      (tstamps "ad0e90c0-ad75-4e8b-86b3-87ef16070985"))
     (comp (ref "C5")
       (value "10uF")
       (footprint "Capacitor_SMD:C_0201_0603Metric")
@@ -43,7 +43,7 @@
       (property (name "Sheetfile") (value "circuit.kicad_sch"))
       (property (name "ki_fp_filters") (value "C_*"))
       (sheetpath (names "/") (tstamps "/"))
-      (tstamps "5838ce83-e084-4841-a955-7f0ba8760efd"))
+      (tstamps "603c7d38-d118-4c47-982f-65e65167a593"))
     (comp (ref "C7")
       (value "0.1uF")
       (footprint "Capacitor_SMD:C_0201_0603Metric")
@@ -57,7 +57,7 @@
       (property (name "Sheetfile") (value "circuit.kicad_sch"))
       (property (name "ki_fp_filters") (value "C_*"))
       (sheetpath (names "/") (tstamps "/"))
-      (tstamps "b23d6c29-0d54-44e4-85e4-41853a9f7869")))
+      (tstamps "8c729f76-5750-4137-8664-7e263c30b3a2")))
     (libparts
     (libpart (lib "SamacSys_Parts") (part "XC6220B331MR-G")
       (docs "https://www.torexsemi.com/file/xc6220/XC6220.pdf")
@@ -93,4 +93,5 @@
     (nets
     (net (code "1") (name "REGULATOR_VOUT")
           (node (ref "IC1") (pin "5") (pintype "passive") (pinfunction "VOUT"))
-          (node (ref "C5") (pin "1") (pintype "passive")))))
+          (node (ref "C5") (pin "1") (pintype "passive"))
+          (node (ref "C7") (pin "1") (pintype "passive")))))

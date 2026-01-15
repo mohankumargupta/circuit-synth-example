@@ -2,7 +2,7 @@
 	(version 20250114)
 	(generator "circuit_synth")
 	(generator_version "0.8.36")
-	(uuid "e07d8eb1-7943-4b3e-9fa9-f711b15326a7")
+	(uuid "3fa41bdc-4b18-47ee-967e-f455cf70c87d")
 	(paper "A4")
 	(title_block
 		(title "main_circuit")
@@ -352,7 +352,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "a94ee123-6488-4419-bc60-716b8091e39b")
+		(uuid "11ec2205-9df1-451a-8a36-a7417f5405c3")
 		(property "Reference" "IC1"
 			(at 64.77 35.56 0.0000)
 			(effects
@@ -371,7 +371,7 @@
 				(hide yes)
 			)
 		)
-		(property "hierarchy_path" "/e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+		(property "hierarchy_path" "/3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 			(at 43.18 33.0199 0)
 			(effects
 				(font
@@ -389,7 +389,7 @@
 				(hide yes)
 			)
 		)
-		(property "root_uuid" "e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+		(property "root_uuid" "3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 			(at 43.18 33.0199 0)
 			(effects
 				(font
@@ -399,23 +399,23 @@
 			)
 		)
 		(pin "1"
-			(uuid "7fb4ec10-78f0-4acb-9fa4-4063df67262b")
+			(uuid "f6d75434-c524-438e-8908-b91c20817e1e")
 		)
 		(pin "2"
-			(uuid "1c80e245-d839-4903-853a-8931be868663")
+			(uuid "d76e3e11-89ec-4300-847a-28721328f9b5")
 		)
 		(pin "3"
-			(uuid "f83bae4d-a7fc-402e-a19d-c7e43d9d74b1")
+			(uuid "bcf36c5f-c0bf-414d-b1e7-d43c2a8e26ab")
 		)
 		(pin "4"
-			(uuid "db47d7f9-1fc1-4c5f-afd4-802cccbc44df")
+			(uuid "09017e9c-bc53-431b-a9c4-8fa6732baa68")
 		)
 		(pin "5"
-			(uuid "b0214c62-9f43-425a-8663-7df7d70f9c02")
+			(uuid "4945ced7-729b-44f3-8eb1-7d1d99daf159")
 		)
 		(instances
 			(project ""
-				(path "/e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+				(path "/3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 					(reference "IC1")
 					(unit 1)
 				)
@@ -431,7 +431,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "1aff9f5a-a5f8-44fa-91ed-7682d8ffebd2")
+		(uuid "1e2ab4fc-3ed3-4d04-b62a-1bed5cdc04d9")
 		(property "Reference" "C5"
 			(at 79.375 35.56 0.0000)
 			(effects
@@ -459,7 +459,7 @@
 				(hide yes)
 			)
 		)
-		(property "hierarchy_path" "/e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+		(property "hierarchy_path" "/3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 			(at 81.28 38.0999 0)
 			(effects
 				(font
@@ -477,7 +477,7 @@
 				(hide yes)
 			)
 		)
-		(property "root_uuid" "e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+		(property "root_uuid" "3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 			(at 81.28 38.0999 0)
 			(effects
 				(font
@@ -487,14 +487,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "0db65998-93b8-465f-ae7e-50a9c8803d19")
+			(uuid "cc9db881-ad4d-4cde-bf27-ef0ddb01678d")
 		)
 		(pin "2"
-			(uuid "4c65e44d-b3e3-4086-aa7f-52f1ddb86d99")
+			(uuid "48c60484-969c-4e4c-9d4c-935708993704")
 		)
 		(instances
 			(project ""
-				(path "/e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+				(path "/3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 					(reference "C5")
 					(unit 1)
 				)
@@ -510,7 +510,7 @@
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced no)
-		(uuid "f86cfa0e-76d9-4633-8d53-ade914096ec4")
+		(uuid "89f15684-645f-47bf-91cd-7da2bef0c460")
 		(property "Reference" "C7"
 			(at 102.235 35.56 0.0000)
 			(effects
@@ -538,7 +538,7 @@
 				(hide yes)
 			)
 		)
-		(property "hierarchy_path" "/e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+		(property "hierarchy_path" "/3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 			(at 104.14 38.0999 0)
 			(effects
 				(font
@@ -556,7 +556,7 @@
 				(hide yes)
 			)
 		)
-		(property "root_uuid" "e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+		(property "root_uuid" "3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 			(at 104.14 38.0999 0)
 			(effects
 				(font
@@ -566,14 +566,14 @@
 			)
 		)
 		(pin "1"
-			(uuid "2e5e8ead-3377-42b3-a72f-94e808ab26e8")
+			(uuid "bdbf9aca-4a27-4d44-96ee-c7c79d0fd09b")
 		)
 		(pin "2"
-			(uuid "96af0ed3-43a4-45a0-bc2b-f773fed8ed80")
+			(uuid "3d7222d1-88fb-4942-ae67-b96b0e8544d4")
 		)
 		(instances
 			(project ""
-				(path "/e07d8eb1-7943-4b3e-9fa9-f711b15326a7"
+				(path "/3fa41bdc-4b18-47ee-967e-f455cf70c87d"
 					(reference "C7")
 					(unit 1)
 				)
@@ -589,7 +589,7 @@
 			)
 			(justify left)
 		)
-		(uuid "bec7819f-2d1a-41a1-90fb-6219ea567350")
+		(uuid "6f67ac80-901a-4c10-91cc-337a46342a06")
 	)
 	(hierarchical_label "REGULATOR_VOUT"
 		(shape input)
@@ -600,7 +600,18 @@
 			)
 			(justify left)
 		)
-		(uuid "787a189d-b414-43b2-99b9-bfcf7b52c37e")
+		(uuid "c27dbeb5-054e-48ce-a021-dd9ac967a3f9")
+	)
+	(hierarchical_label "REGULATOR_VOUT"
+		(shape input)
+		(at 101.6 29.21 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6b6faa41-3aab-47fe-a3d7-e4f68eb7dd77")
 	)
 	(sheet_instances
 		(path "/"

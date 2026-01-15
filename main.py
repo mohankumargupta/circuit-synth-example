@@ -2,6 +2,10 @@ from circuit_synth import *
 from pathlib import Path
 import shutil
 
+# power:+5V
+# power:+3.3V
+# power:PWR_FLAG
+
 VREGULATOR_TOREX = Component(
     symbol="SamacSys_Parts:XC6220B331MR-G",
     footprint="SamacSys_Parts:SOT95P280X130-5N",
@@ -91,23 +95,12 @@ def usb_power_supply():
     capacitor_c7.ref = "C7"
 
     # Connect regulator nets
-    #regulator_ic1[5] += capacitor_c5[1]
     regulator_nets["vout"] += regulator_ic1[5]
     regulator_nets["vout"] += capacitor_c5[1]
 
-    # # Rename nets
-    # regulator_ic1[5] += regulator_nets["vout"]
+    # Add wires
+    capacitor_c5[1] += capacitor_c7[1]
 
-    # regulator_nets["vin"] = regulator_ic1[1]
-    # regulator_nets["vss"] = regulator_ic1[2]
-    # regulator_nets["ce"] = regulator_ic1[3]
-    #regulator_nets["vout"] = regulator_ic1[5]
-
-    # # Connections
-    # # connect pin 5 of VREG to capacitors
-    #capacitor_c5[1] += regulator_nets["vout"]
-    #regulator_ic1[5] += capacitor_c5[1]
-    # regulator_ic1[5] += capacitor_c7[1]
 
 @circuit
 def main_circuit():
