@@ -1,115 +1,81 @@
 {
   "name": "main_circuit",
   "description": "",
-  "tstamps": "/main_circuit-1851301466128/",
+  "tstamps": "/main_circuit-1950431088656/",
   "source_file": "main_circuit.kicad_sch",
   "components": {
-    "R3": {
-      "symbol": "Device:R",
-      "ref": "R3",
-      "value": "10k",
-      "footprint": "Resistor_SMD:R_0603_1608Metric",
+    "J3": {
+      "symbol": "Connector_Generic:Conn_01x03",
+      "ref": "J3",
+      "value": "UART_Header",
+      "footprint": "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical",
       "datasheet": "~",
-      "description": "Resistor",
+      "description": "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)",
       "properties": {
-        "ki_fp_filters": "R_*"
+        "ki_fp_filters": "Connector*:*_1x??_*"
       },
       "_extra_fields": {
-        "ki_fp_filters": "R_*"
+        "ki_fp_filters": "Connector*:*_1x??_*"
       },
       "pins": [
         {
           "pin_id": "1",
-          "name": "~",
+          "name": "Pin_1",
           "func": "passive",
           "unit": 1,
-          "x": 0.0,
-          "y": 3.81,
-          "length": 1.27,
-          "orientation": 270.0
+          "x": -5.08,
+          "y": 2.54,
+          "length": 3.81,
+          "orientation": 0.0
         },
         {
           "pin_id": "2",
-          "name": "~",
+          "name": "Pin_2",
           "func": "passive",
           "unit": 1,
-          "x": 0.0,
-          "y": -3.81,
-          "length": 1.27,
-          "orientation": 90.0
-        }
-      ]
-    },
-    "C12": {
-      "symbol": "Device:C",
-      "ref": "C12",
-      "value": "1uF",
-      "footprint": "Capacitor_SMD:C_0603_1608Metric",
-      "datasheet": "~",
-      "description": "Unpolarized capacitor",
-      "properties": {
-        "ki_fp_filters": "C_*"
-      },
-      "_extra_fields": {
-        "ki_fp_filters": "C_*"
-      },
-      "pins": [
-        {
-          "pin_id": "1",
-          "name": "~",
-          "func": "passive",
-          "unit": 1,
-          "x": 0.0,
-          "y": 3.81,
-          "length": 2.794,
-          "orientation": 270.0
+          "x": -5.08,
+          "y": 0.0,
+          "length": 3.81,
+          "orientation": 0.0
         },
         {
-          "pin_id": "2",
-          "name": "~",
+          "pin_id": "3",
+          "name": "Pin_3",
           "func": "passive",
           "unit": 1,
-          "x": 0.0,
-          "y": -3.81,
-          "length": 2.794,
-          "orientation": 90.0
+          "x": -5.08,
+          "y": -2.54,
+          "length": 3.81,
+          "orientation": 0.0
         }
       ]
     }
   },
   "nets": {
-    "+3.3V": {
+    "GND": {
       "nodes": [
         {
-          "component": "R3",
+          "component": "J3",
           "pin": {
             "number": "1",
-            "name": "~",
+            "name": "Pin_1",
             "type": "passive"
           }
         }
       ],
       "is_power": true,
-      "power_symbol": "power:+3V3",
+      "power_symbol": "power:GND",
       "trace_current": null,
       "impedance": null,
       "properties": {}
     },
-    "EN": {
+    "TXD": {
       "nodes": [
         {
-          "component": "R3",
+          "component": "J3",
           "pin": {
             "number": "2",
-            "name": "~",
-            "type": "passive"
-          }
-        },
-        {
-          "component": "C12",
-          "pin": {
-            "number": "1",
-            "name": "~",
+            "name": "Pin_2",
             "type": "passive"
           }
         }
@@ -120,19 +86,19 @@
       "impedance": null,
       "properties": {}
     },
-    "GND": {
+    "RXD": {
       "nodes": [
         {
-          "component": "C12",
+          "component": "J3",
           "pin": {
-            "number": "2",
-            "name": "~",
+            "number": "3",
+            "name": "Pin_3",
             "type": "passive"
           }
         }
       ],
-      "is_power": true,
-      "power_symbol": "power:GND",
+      "is_power": false,
+      "power_symbol": null,
       "trace_current": null,
       "impedance": null,
       "properties": {}

@@ -172,11 +172,38 @@ def rc_delay():
     # C12 Pin 2 -> GND
     c12[2] += gnd    
 
+def uart_circuit():
+    # 1. Define the Nets
+    # Matching the labels in your schematic: RXD, TXD, and GND
+    rxd = Net("RXD")
+    txd = Net("TXD")
+    gnd = Net("GND")
 
+    # 2. Define the Component
+    # J3: 3-pin Connector
+    # We use the standard KiCad symbol "Connector_Generic:Conn_01x03"
+    j3 = Component(
+        symbol="Connector_Generic:Conn_01x03",
+        ref="J3",
+        value="UART_Header",
+        # We must choose a footprint. A standard 2.54mm (0.1") pin header is common for UART.
+        footprint="Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+    )
+
+    # 3. Connect the pins based on the schematic
+    # Pin 3 -> RXD
+    j3[3] += rxd
+
+    # Pin 2 -> TXD
+    j3[2] += txd
+
+    # Pin 1 -> GND
+    j3[1] += gnd
 
 @circuit
 def main_circuit():
-    rc_delay()
+    uart_circuit()
+    #rc_delay()
     #usb_connector_circuit()
     #usb_power_supply()
     
